@@ -4,7 +4,7 @@ loginForm.addEventListener("submit", function (event) {
     event.preventDefault();
     const userIdentification = loginForm.identification.value;
     const userPassword = loginForm.password.value;
-    const query = userRef.where("identification", "==", userIdentification);
+    const query = adminsRef.where("identification", "==", userIdentification);
 
     let userInfo;
 
