@@ -1,5 +1,6 @@
 let userInfo;
 let userMessagesRef;
+let targetId = "BOdgSHsEz8W27vqE201rsCyJfWM2"
 
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
@@ -9,7 +10,7 @@ firebase.auth().onAuthStateChanged((user) => {
                 const data = doc.data();
                 userInfo = data;
                 userInfo.uid = uid;
-                userMessagesRef = userRef.doc("yFgCuVTjRefqzIegiuGovotyhny1").collection('messages');
+                userMessagesRef = userRef.doc(targetId).collection('messages');
                 handleHeader();
                 if (document.querySelector(".chatbot")) {
                     getMessages(isChatOnline);

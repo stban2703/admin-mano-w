@@ -179,13 +179,32 @@ function handleLastUserMessage(message, elem) {
     }, 2000)
 }
 
+// Verificar si esta escribiendo
+let timer;
+let timeoutVal = 1000;
+chabotMessageForm.addEventListener("keypress", function () {
+    //console.log("ok")
+    window.clearTimeout(timer);
+    userRef.doc(targetId).update({
+        isTyping: true
+    })
+})
+chabotMessageForm.addEventListener("keyup", function () {
+    window.clearTimeout(timer); // prevent errant multiple timeouts from being generated
+    timer = window.setTimeout(() => {
+        //console.log("not okay")
+        userRef.doc(targetId).update({
+            isTyping: false
+        })
+    }, timeoutVal);
+})
+
 chabotMessageForm.addEventListener("submit", function (event) {
     event.preventDefault();
     let messageText = chabotMessageForm.userMessage.value;
     handleAddMessagesInList(messageText, "asesor", isChatOnline);
     chabotMessageForm.userMessage.value = "";
 })
-
 
 function handleSendMessageFirestore(message) {
     const newMessage = message;
