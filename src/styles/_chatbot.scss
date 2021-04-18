@@ -148,6 +148,7 @@
     &__footer{
         width: 100%;
         padding: 5px;
+        display: flex;
         align-self: flex-end;
         justify-self: flex-end;
     }
@@ -175,8 +176,5 @@
     &__sendBtn {
         background: none;
         border: none;
-        position: absolute;
-        right: 0;
-        height: 100%;
     }
 }

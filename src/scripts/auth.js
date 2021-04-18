@@ -1,6 +1,6 @@
 let userInfo;
 let userMessagesRef;
-let targetId = "BOdgSHsEz8W27vqE201rsCyJfWM2"
+let targetId = "yFgCuVTjRefqzIegiuGovotyhny1"
 
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
